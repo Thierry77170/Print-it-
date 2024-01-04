@@ -17,15 +17,33 @@ const slides = [
 	}
 ]
 
-
 const leftArrow = document.querySelector('.arrow .arrow_left');
-const rightArrow = document.querySelector('#banner .arrow_right');
+const rightArrow = document.querySelector('.arrow .arrow_right');
+let image = document.querySelector('.banner-img');
+let indexImg = 0;
 
 leftArrow.addEventListener('click', function (event) {
-	alert('arrow left')
+	indexImg--;
+	console.log(indexImg);
+
+	if (indexImg < 0) {
+		indexImg = slides.length - 1;
+	}
+
+	image.src = '../assets/images/slideshow/' +  slides[indexImg].image;
+	console.log('arrow left');
 })
 
 rightArrow.addEventListener('click', function (event) {
-	alert('arrow right')
+	indexImg++;
+	console.log(indexImg);
+
+	if (indexImg > 3) {
+		indexImg = 0;
+	}
+
+	image.src = '../assets/images/slideshow/' + slides[indexImg].image;
+	console.log('arrow right');
 })
+
 
