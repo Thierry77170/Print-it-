@@ -17,33 +17,55 @@ const slides = [
 	}
 ]
 
+const bubbleBoard = ['dot dot_selected', 'dot', 'dot', 'dot']
+
+
+
+
 const leftArrow = document.querySelector('.arrow .arrow_left');
 const rightArrow = document.querySelector('.arrow .arrow_right');
 let image = document.querySelector('.banner-img');
-let indexImg = 0;
+let indexSlides = 0;
+let texteSlide = document.querySelector('#banner p');
+
 
 leftArrow.addEventListener('click', function (event) {
-	indexImg--;
-	console.log(indexImg);
-
-	if (indexImg < 0) {
-		indexImg = slides.length - 1;
+	indexSlides--;
+	if (indexSlides < 0) {
+		indexSlides = slides.length - 1;
 	}
+	console.log(indexSlides);
+	image.src = '../assets/images/slideshow/' +  slides[indexSlides].image;
+	
+	texteSlide.innerHTML = slides[indexSlides].tagLine;
 
-	image.src = '../assets/images/slideshow/' +  slides[indexImg].image;
-	console.log('arrow left');
+	updateBubbleBoard();
 })
 
 rightArrow.addEventListener('click', function (event) {
-	indexImg++;
-	console.log(indexImg);
-
-	if (indexImg > 3) {
-		indexImg = 0;
+	indexSlides++;
+	if (indexSlides > slides.length - 1) {
+		indexSlides = 0;
 	}
-
-	image.src = '../assets/images/slideshow/' + slides[indexImg].image;
-	console.log('arrow right');
+	console.log(indexSlides);
+	image.src = '../assets/images/slideshow/' + slides[indexSlides].image;
+	
+	texteSlide.innerHTML = slides[indexSlides].tagLine;
+	
+	updateBubbleBoard();
 })
 
 
+
+function updateBubbleBoard() {
+	const dots = document.querySelectorAll('.dot');
+	console.log(dots);
+	for (let i = 0; i < bubbleBoard.length; i++) {
+		if (i === indexSlides) {
+			dots[i].classList.add('dot_selected');
+		} else {
+			dots[i].classList.remove('dot_selected');
+		}
+	} 
+	
+}
