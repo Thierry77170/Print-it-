@@ -35,7 +35,7 @@ leftArrow.addEventListener('click', function (event) {
 		indexSlides = slides.length - 1;
 	}
 	console.log(indexSlides);
-	image.src = 'https://thierry77170.github.io/Print-it-/assets/images/slideshow/' +  slides[indexSlides].image;
+	image.src = 'https://thierry77170.github.io/Print-it-//assets/images/slideshow/' +  slides[indexSlides].image;
 	
 	texteSlide.innerHTML = slides[indexSlides].tagLine;
 
@@ -48,7 +48,7 @@ rightArrow.addEventListener('click', function (event) {
 		indexSlides = 0;
 	}
 	console.log(indexSlides);
-	image.src = 'https://thierry77170.github.io/Print-it-/assets/images/slideshow/' + slides[indexSlides].image;
+	image.src = 'https://thierry77170.github.io/Print-it-//assets/images/slideshow/' + slides[indexSlides].image;
 	
 	texteSlide.innerHTML = slides[indexSlides].tagLine;
 	
